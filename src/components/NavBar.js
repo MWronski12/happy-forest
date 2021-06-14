@@ -48,7 +48,7 @@ const NavBar = ({ measurements, state, handleDeviceChange, handleDrawer }) => {
                   select
                   autoFocus
                   fullWidth
-                  label="Select the device"
+                  label="Wybierz urządzenie"
                   value={state.device}
                   onChange={(e) => handleDeviceChange(e.target.value)}
                 >
@@ -86,7 +86,7 @@ const NavBar = ({ measurements, state, handleDeviceChange, handleDrawer }) => {
                         )
                         .slice(-1)[0].battery
                     }
-                    %
+                    V
                   </Typography>)
                 }
 

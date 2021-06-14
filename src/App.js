@@ -18,7 +18,7 @@ import DataTable from "./components/DataTable";
 export const devices = [
   {
     id: 1,
-    name: "texas1",
+    name: "Drewniana budka",
   },
   {
     id: 2,
@@ -49,14 +49,14 @@ const App = () => {
   const { lastJsonMessage } = useWebSocket('ws://localhost:8080', {});
   useEffect(() => {
     if (lastJsonMessage === null) return;
-    const { id, pres, temp, humi, rain } = lastJsonMessage;
+    const { id, pres, temp, humi, rain, bat } = lastJsonMessage;
     setMeasurements(m => [...m, {
       id: m.length + 1,
       deviceId: 1,
       deviceName: "texas1",
       timestamp: new Date().toLocaleString(),
-      battery: 50,
-      UV: 320,
+      battery: Math.floor(bat / 100000) / 10,
+      pres: 320,
       illumination: 1250,
       airTemp: temp,
       airHum: humi,
@@ -98,22 +98,22 @@ const App = () => {
           justify="center"
         >
           <Grid item xs={12} md={6} xl={4}>
-            <Chart state={state} sensor="airTemp" title="Air Temperature" measurements={measurements} />
+            <Chart state={state} sensor="airTemp" title="Temperatura powietrza [°C]" measurements={measurements} />
           </Grid>
           <Grid item xs={12} md={6} xl={4}>
-            <Chart state={state} sensor="airHum" title="Air Humidity" measurements={measurements} />
+            <Chart state={state} sensor="airHum" title="Wilgotność powietrza [%]" measurements={measurements} />
           </Grid>
           <Grid item xs={12} md={6} xl={4}>
-            <Chart state={state} sensor="UV" title="UV" measurements={measurements} />
+            <Chart state={state} sensor="pres" title="Ciśnienie powietrza [hPa]" measurements={measurements} />
           </Grid>
           <Grid item xs={12} md={6} xl={4}>
-            <Chart state={state} sensor="illumination" title="Illumination" measurements={measurements} />
+            <Chart state={state} sensor="illumination" title="Oświetlenie [lm]" measurements={measurements} />
           </Grid>
           <Grid item xs={12} md={6} xl={4}>
-            <Chart state={state} sensor="rain" title="Rain Intensity" measurements={measurements} />
+            <Chart state={state} sensor="rain" title="Opady [mm]" measurements={measurements} />
           </Grid>
           <Grid item xs={12} md={6} xl={4}>
-            <Chart state={state} sensor="battery" title="Battery Level" measurements={measurements} />
+            <Chart state={state} sensor="battery" title="Stan zasilania [V]" measurements={measurements} />
           </Grid>
         </Grid>
       ) : (
