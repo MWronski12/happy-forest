@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 
 // Data
-import { devices, measurements } from "../App";
+import { devices } from "../App";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NavBar = ({ state, handleDeviceChange, handleDrawer }) => {
+const NavBar = ({ measurements, state, handleDeviceChange, handleDrawer }) => {
   const classes = useStyles();
   console.log(state.device.name);
 
@@ -76,17 +76,21 @@ const NavBar = ({ state, handleDeviceChange, handleDrawer }) => {
                 </IconButton>
               </Grid>
               <Grid item>
-                <Typography variant="body1">
-                  {
-                    measurements
-                      .filter(
-                        (measurement) =>
-                          measurement.deviceId === state.device.id
-                      )
-                      .slice(-1)[0].battery
-                  }
-                  %
-                </Typography>
+                {measurements.length !== 0 &&
+                  (<Typography variant="body1">
+                    {
+                      measurements
+                        .filter(
+                          (measurement) =>
+                            measurement.deviceId === state.device.id
+                        )
+                        .slice(-1)[0].battery
+                    }
+                    %
+                  </Typography>)
+                }
+
+
               </Grid>
             </Grid>
           </Grid>

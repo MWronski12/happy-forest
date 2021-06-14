@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import { Line } from "react-chartjs-2";
 
 // Data
-import { measurements } from "../App";
+// import { measurements } from "../App";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Chart = ({ sensor, title, state }) => {
+const Chart = ({ measurements, sensor, title, state }) => {
   const classes = useStyles();
   const theme = useTheme();
 
