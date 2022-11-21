@@ -1,3 +1,5 @@
 ## Happy Forest 🌳
 
-Happy forest is a project of distributed sensors network for monitoring various environmental parameters of a forest. Project was created by students of Warsaw University of Technology in cooperation with scientist from Warsaw University of Life Sciences.
+###### Projekt rozproszonej sieci czujników, służącej do monitorowania różnych parametrów środowiskowych w lasach. 
+
+Projekt został stworzony przez studentów Politechniki Warszawskiej wydziału Elektroniki i Technik Informacyjnych we współpracy z naukowcami z Szkoły Głównej Gospodarki Wodnej w Warszawie.
